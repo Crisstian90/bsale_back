@@ -15,11 +15,11 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public List<Category> listAllUser() {
+    public List<Category> listAllCategory() {
         return categoryRepository.findAll();
     }
 
-    public Category getProductById(Integer id) {
+    public Category getCategoryById(Integer id) {
         return categoryRepository.findById(id).get();
     }
     
