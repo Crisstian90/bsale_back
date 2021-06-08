@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/api/products")
 public class ProductController {
     
@@ -20,18 +21,21 @@ public class ProductController {
     ProductService productService;
 
     // Listar todo los productos
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("")
     public List<Product> listAllProduct() {
         return productService.listAllProductos();
     }
 
     // Listar todo los productos por pagina
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/page/{numPag}")
     public Page<Product> listAllProductPage(@PathVariable Integer numPag) {
         return productService.listAllProductosPage(numPag);
     }
 
     // Buscar productos por id
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Integer id) {
         try {
@@ -43,6 +47,7 @@ public class ProductController {
     }
 
     // Buscar productos por categoria
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/category/{id}")
     public ResponseEntity<List<Product>> listProductByCategory(@PathVariable String id) {
         List<Product> response = productService.getProductByCategory(id);
@@ -55,6 +60,7 @@ public class ProductController {
     }
 
     // Buscar productos por palabra
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/search/{words}")
     public ResponseEntity<List<Product>> listFindProduct(@PathVariable String words) {
         List<Product> response = productService.getProductByLetter(words);

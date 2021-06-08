@@ -12,6 +12,7 @@ import java.util.NoSuchElementException;
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/api/category")
 public class CategoryController {
 
@@ -19,6 +20,7 @@ public class CategoryController {
     CategoryService categoryService;
 
     // Listar todas las categorias
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("")
     public ResponseEntity<List<Category>> listCategoryt(){
         List<Category> response = categoryService.listAllCategory();
@@ -31,6 +33,7 @@ public class CategoryController {
     }
 
     // Listar categorias por id
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/{id}")
     public ResponseEntity<Category> get(@PathVariable Integer id) {
         try {
